@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var container: NSPersistentContainer?
-    
+
     // MARK: - создание стэка Core Data
     func createContainer(complition: @escaping (NSPersistentContainer) -> ()){      //создаем контейнер NSPersistentContainer
         let container = NSPersistentContainer(name: "Ya_CoreData")                        //передаем ему название нашей модели "Model"
@@ -28,7 +28,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
         createContainer { container in                                             //вызываем функуию для создания стека CoreData
             self.container = container
             if let nc = self.window?.rootViewController as? UINavigationController,     //сохраняем контейнер
@@ -37,21 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 vc.context = container.viewContext
             }
         }
+        
         return true
-    }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
     // MARK: - Core Data stack

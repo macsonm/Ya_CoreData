@@ -30,7 +30,13 @@
                             <outlet property="delegate" destination="pz2-cZ-Ute" id="aUD-74-144"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4NQ-Rv-u9k"/>
+                    <navigationItem key="navigationItem" id="4NQ-Rv-u9k">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="K86-wn-qc6">
+                            <connections>
+                                <action selector="addOrgButton:" destination="pz2-cZ-Ute" id="rXH-Vg-2Lx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tView" destination="NX9-vg-UGe" id="CbB-FK-6HT"/>
                     </connections>
