@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Ya_CoreData
-//
-//  Created by Maxim M on 18.02.2022.
-//
-
 import UIKit
 import CoreData
 
@@ -16,7 +9,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - создание стэка Core Data
     func createContainer(complition: @escaping (NSPersistentContainer) -> ()){      //создаем контейнер NSPersistentContainer
-        let container = NSPersistentContainer(name: "Ya_CoreData")                        //передаем ему название нашей модели "Model"
+        let container = NSPersistentContainer(name: "Ya_CoreData")                        //передаем ему название нашей модели "Ya_CoreData"
         container.loadPersistentStores(completionHandler: { _, error in             //вызываем loadPersistentStores для открытия бд
             guard error == nil else {
                 fatalError("Failed to load data")
