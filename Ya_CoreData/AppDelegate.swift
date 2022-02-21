@@ -11,10 +11,32 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
+    var container: NSPersistentContainer?
+    
+    // MARK: - создание стэка Core Data
+    func createContainer(complition: @escaping (NSPersistentContainer) -> ()){      //создаем контейнер NSPersistentContainer
+        let container = NSPersistentContainer(name: "Ya_CoreData")                        //передаем ему название нашей модели "Model"
+        container.loadPersistentStores(completionHandler: { _, error in             //вызываем loadPersistentStores для открытия бд
+            guard error == nil else {
+                fatalError("Failed to load data")
+            }
+            DispatchQueue.main.async {
+                complition(container)
+            }
+        })
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       
+        createContainer { container in                                             //вызываем функуию для создания стека CoreData
+            self.container = container
+            if let nc = self.window?.rootViewController as? UINavigationController,     //сохраняем контейнер
+               let vc = nc.topViewController as? OrganizationVC
+            {
+                vc.context = container.viewContext
+            }
+        }
         return true
     }
 
