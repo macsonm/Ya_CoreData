@@ -11,7 +11,7 @@ class OrganizationVC: UITableViewController {
         guard let context = context else { return }
 
         guard let organization = NSEntityDescription.insertNewObject(forEntityName: "Organization", into: context) as? Organization else { return }
-        organization.name = "test"
+        organization.name = "Hello Org"
 
         do{
             try context.save()
@@ -31,7 +31,13 @@ class OrganizationVC: UITableViewController {
     }
     
     func fetchData() {
-        let request = NSFetchRequest<Organization>(entityName: "Organization")      //получение данных из CoreData
+        let predicate = NSPredicate(format: "name like '*Org'")
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)     //сортировка по возрастанию true
+        
+        let request = NSFetchRequest<Organization>(entityName: "Organization")      //получение данных из CoreData через NSFetchRequest(дорогая операция)
+        request.fetchLimit = 3      //ограничение запроса из БД до 3 единиц
+        request.predicate = predicate
+        request.sortDescriptors = [ sortDescriptor ]
         organizations = try! context.fetch(request)
         tView.reloadData()
         tView.refreshControl?.endRefreshing()
