@@ -11,7 +11,7 @@ class OrganizationVC: UITableViewController {
         guard let context = context else { return }
 
         guard let organization = NSEntityDescription.insertNewObject(forEntityName: "Organization", into: context) as? Organization else { return }
-        organization.name = "Hello Org"
+        organization.name = "Aello Org"
 
         do{
             try context.save()
