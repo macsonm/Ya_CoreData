@@ -5,7 +5,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var container: NSPersistentContainer?
+    var container: NSPersistentContainer!
 
     // MARK: - создание стэка Core Data
     func createContainer(complition: @escaping (NSPersistentContainer) -> ()){      //создаем контейнер NSPersistentContainer

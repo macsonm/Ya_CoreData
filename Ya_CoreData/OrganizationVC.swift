@@ -26,14 +26,6 @@ class OrganizationVC: UITableViewController {
     
     fileprivate let employeesSegueIdentifier = "employees"
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "employeesSegueIdentifier",
-           let vc = segue.destination as? EmployeeVC,
-           let indexPath = tView.indexPathForSelectedRow{
-            vc.organization = fetchedResultsController?.object(at: indexPath)
-        }
-    }
-    
     var context: NSManagedObjectContext! {
         didSet {
             setupFetchedResultsController(for: context)
@@ -42,6 +34,14 @@ class OrganizationVC: UITableViewController {
     }
     
     private var fetchedResultsController: NSFetchedResultsController<Organization>?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "employeesSegueIdentifier",
+           let vc = segue.destination as? EmployeeVC,
+           let indexPath = tView.indexPathForSelectedRow{
+            vc.organization = fetchedResultsController?.object(at: indexPath)
+        }
+    }
     
     func setupFetchedResultsController(for context: NSManagedObjectContext) {   //создаем и конфигурирует fetchResultController
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
