@@ -9,10 +9,11 @@ class EmployeeVC: UITableViewController {
         guard let context = organization.managedObjectContext else { return }
         let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee //добавляем в контекст новый объект класса Employee
         
-        employee.firstName = "Kate"
+        employee.name = "Kate"
         employee.lastName = "K"
         employee.bDate = Date()
         employee.position = "Ios Dev"
+        employee.salary = 300
         
         organization.addToEmployee(employee)
         
@@ -59,8 +60,10 @@ class EmployeeVC: UITableViewController {
         guard let employee = fetchedResultsController?.object(at: indexPath) else { return cell }
         
         var content = cell.defaultContentConfiguration()
-        content.text = employee.lastName
-        content.secondaryText = employee.position ?? ""
+        
+        content.text = employee.lastName! + employee.name!
+        content.secondaryText = "\(employee.salary) \(employee.position ?? "")"
+        
         cell.contentConfiguration = content
         return cell
     
