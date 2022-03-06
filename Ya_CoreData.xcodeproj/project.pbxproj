@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F729FA5E27C3E30000B3FF84 /* Organization+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729FA5C27C3E30000B3FF84 /* Organization+CoreDataProperties.swift */; };
 		F729FA5F27C3E30000B3FF84 /* Organization+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F729FA5D27C3E30000B3FF84 /* Organization+CoreDataClass.swift */; };
+		F730697227D3C5600020AE85 /* EmployeeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F730697127D3C5600020AE85 /* EmployeeVC.swift */; };
 		F740CD0A27BFADCC00E4A92E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F740CD0927BFADCC00E4A92E /* AppDelegate.swift */; };
 		F740CD1127BFADCC00E4A92E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F740CD0F27BFADCC00E4A92E /* Main.storyboard */; };
 		F740CD1627BFADCD00E4A92E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F740CD1527BFADCD00E4A92E /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		F729FA5C27C3E30000B3FF84 /* Organization+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F729FA5D27C3E30000B3FF84 /* Organization+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Organization+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F730697127D3C5600020AE85 /* EmployeeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeVC.swift; sourceTree = "<group>"; };
 		F740CD0627BFADCC00E4A92E /* Ya_CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ya_CoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F740CD0927BFADCC00E4A92E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F740CD1027BFADCC00E4A92E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				F740CD0927BFADCC00E4A92E /* AppDelegate.swift */,
 				F740CD2027BFCCEF00E4A92E /* OrganizationVC.swift */,
+				F730697127D3C5600020AE85 /* EmployeeVC.swift */,
 				F740CD0F27BFADCC00E4A92E /* Main.storyboard */,
 				F740CD1527BFADCD00E4A92E /* Assets.xcassets */,
 				F740CD1727BFADCD00E4A92E /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			files = (
 				F729FA5E27C3E30000B3FF84 /* Organization+CoreDataProperties.swift in Sources */,
 				F740CD2127BFCCEF00E4A92E /* OrganizationVC.swift in Sources */,
+				F730697227D3C5600020AE85 /* EmployeeVC.swift in Sources */,
 				F7B748F827C3E02D0082673C /* Ya_CoreData.xcdatamodeld in Sources */,
 				F740CD0A27BFADCC00E4A92E /* AppDelegate.swift in Sources */,
 				F729FA5F27C3E30000B3FF84 /* Organization+CoreDataClass.swift in Sources */,

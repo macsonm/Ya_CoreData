@@ -11,7 +11,7 @@ class OrganizationVC: UITableViewController {
         guard let context = context else { return }
 
         guard let organization = NSEntityDescription.insertNewObject(forEntityName: "Organization", into: context) as? Organization else { return }
-        organization.name = "Aello Org"
+        organization.name = "test Org"
 
         do{
             try context.save()
@@ -23,6 +23,16 @@ class OrganizationVC: UITableViewController {
     
     fileprivate let cellIdentifier = "OrganizationCellIdentifier"
 //fileprivate var organizations = [Organization]()     //вместо массива организаций будем использовать данные из fetchResultsCntroller в "numberOfRowsInSection" и в "cellForRowAt"
+    
+    fileprivate let employeesSegueIdentifier = "employees"
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "employeesSegueIdentifier",
+           let vc = segue.destination as? EmployeeVC,
+           let indexPath = tView.indexPathForSelectedRow{
+            vc.organization = fetchedResultsController?.object(at: indexPath)
+        }
+    }
     
     var context: NSManagedObjectContext! {
         didSet {
