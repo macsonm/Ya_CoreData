@@ -29,6 +29,7 @@
 		F740CD1827BFADCD00E4A92E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F740CD1A27BFADCD00E4A92E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F740CD2027BFCCEF00E4A92E /* OrganizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationVC.swift; sourceTree = "<group>"; };
+		F759C48627D507A4008851BE /* Ya_CoreData 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Ya_CoreData 2.xcdatamodel"; sourceTree = "<group>"; };
 		F7B748F727C3E02D0082673C /* Ya_CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ya_CoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -377,9 +378,10 @@
 		F7B748F627C3E02D0082673C /* Ya_CoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F759C48627D507A4008851BE /* Ya_CoreData 2.xcdatamodel */,
 				F7B748F727C3E02D0082673C /* Ya_CoreData.xcdatamodel */,
 			);
-			currentVersion = F7B748F727C3E02D0082673C /* Ya_CoreData.xcdatamodel */;
+			currentVersion = F759C48627D507A4008851BE /* Ya_CoreData 2.xcdatamodel */;
 			path = Ya_CoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
