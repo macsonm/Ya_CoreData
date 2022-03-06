@@ -5,18 +5,32 @@ class OrganizationVC: UITableViewController {
     
     @IBOutlet weak var tView: UITableView!
     
-   
     @IBAction func addOrgButton(_ sender: Any) {
         print("Hi")
-        guard let context = context else { return }
-
-        guard let organization = NSEntityDescription.insertNewObject(forEntityName: "Organization", into: context) as? Organization else { return }
-        organization.name = "test Org"
-
-        do{
-            try context.save()
-        } catch {
-            print(error)
+//        guard let context = context else { return }
+//
+//        guard let organization = NSEntityDescription.insertNewObject(forEntityName: "Organization", into: context) as? Organization else { return }
+//        organization.name = "test Org"
+//
+//        do{
+//            try context.save()
+//        } catch {
+//            print(error)
+//        }
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            [ weak self ] in
+            guard let `self` = self else { return }
+            let organization = Organization(context: self.backgroundContext)
+            organization.name = "Ya music"
+            self.backgroundContext.performAndWait {
+                do{
+                    try self.backgroundContext.save()
+                } catch {
+                    print(error)
+                }
+            }
+            
         }
         
     }
@@ -25,6 +39,8 @@ class OrganizationVC: UITableViewController {
 //fileprivate var organizations = [Organization]()     //вместо массива организаций будем использовать данные из fetchResultsCntroller в "numberOfRowsInSection" и в "cellForRowAt"
     
     fileprivate let employeesSegueIdentifier = "employees"
+    
+    var backgroundContext : NSManagedObjectContext!
     
     var context: NSManagedObjectContext! {
         didSet {
@@ -73,8 +89,17 @@ class OrganizationVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tView.refreshControl = UIRefreshControl()
-        
         tView.refreshControl?.beginRefreshing()
+        
+        //синхронизация между контекстами (с бекграунда на главный)
+        NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: nil)
+    }
+    
+    @objc func managedObjectContextDidSave(notification: Notification){
+        context.perform {
+            self.context.mergeChanges(fromContextDidSave: notification)
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

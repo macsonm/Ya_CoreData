@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                let vc = nc.topViewController as? OrganizationVC
             {
                 vc.context = container.viewContext
+                vc.backgroundContext = container.newBackgroundContext()
             }
         }
         
