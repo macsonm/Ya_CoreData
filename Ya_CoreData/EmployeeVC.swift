@@ -4,6 +4,7 @@ import CoreData
 class EmployeeVC: UITableViewController {
     
     @IBOutlet weak var tView: UITableView!
+    
     @IBAction func addEmployee(_ sender: Any) {
         guard let context = organization.managedObjectContext else { return }
         let employee = NSEntityDescription.insertNewObject(forEntityName: "Employee", into: context) as! Employee //добавляем в контекст новый объект класса Employee
@@ -13,7 +14,6 @@ class EmployeeVC: UITableViewController {
         employee.bDate = Date()
         employee.position = "Ios Dev"
         
-        //TODO: to do addToEmployee
         organization.addToEmployee(employee)
         
         try! context.save()
@@ -30,7 +30,6 @@ class EmployeeVC: UITableViewController {
         
         request.sortDescriptors = [ sortDescriptor ]
         request.predicate = predicate
-
         
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController?.delegate = self
@@ -61,7 +60,7 @@ class EmployeeVC: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = employee.lastName
-        content.secondaryText = employee.position ?? " "
+        content.secondaryText = employee.position ?? ""
         cell.contentConfiguration = content
         return cell
     
@@ -75,7 +74,7 @@ extension EmployeeVC: NSFetchedResultsControllerDelegate {
         tView.beginUpdates()
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tView.endUpdates()  //подтверждает все изменения в таблице и запускает анимацию
+        tView.endUpdates()
     }
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         

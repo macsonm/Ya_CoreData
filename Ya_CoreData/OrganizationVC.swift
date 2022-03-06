@@ -36,7 +36,7 @@ class OrganizationVC: UITableViewController {
     private var fetchedResultsController: NSFetchedResultsController<Organization>?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "employeesSegueIdentifier",
+        if segue.identifier == employeesSegueIdentifier,
            let vc = segue.destination as? EmployeeVC,
            let indexPath = tView.indexPathForSelectedRow{
             vc.organization = fetchedResultsController?.object(at: indexPath)
@@ -90,7 +90,7 @@ class OrganizationVC: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         content.text = organization.name
-        content.secondaryText = "Employees \(organization.employee?.accessibilityElementCount() ?? 0)"      //????
+        content.secondaryText = "Employees \(organization.employee?.count ?? 0)"      //????
         
         cell.contentConfiguration = content
         

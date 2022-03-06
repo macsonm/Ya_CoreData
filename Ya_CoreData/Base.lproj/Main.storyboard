@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="1773.913043478261" y="-538.39285714285711"/>
         </scene>
-        <!--Title-->
+        <!--OrgName-->
         <scene sceneID="1Rl-xt-wCO">
             <objects>
                 <tableViewController id="zhu-Iu-HrO" customClass="EmployeeVC" customModule="Ya_CoreData" customModuleProvider="target" sceneMemberID="viewController">
@@ -103,7 +103,7 @@
                             <outlet property="delegate" destination="zhu-Iu-HrO" id="ql3-AQ-bDh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="sOP-K8-Qeu">
+                    <navigationItem key="navigationItem" title="OrgName" id="sOP-K8-Qeu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wlv-xe-9qL">
                             <connections>
                                 <action selector="addEmployee:" destination="zhu-Iu-HrO" id="k7q-vE-sw4"/>
